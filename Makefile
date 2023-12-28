@@ -26,10 +26,10 @@ LINKFLAGS=-shared -m32 -L$(HL2SDK)/lib/linux
 all: tickrate_enabler.o tickrate_enabler.so
 
 tickrate_enabler.o:
-	$(CXX) $(CFLAGS) $(OPTFLAGS) $(INCLUDES) -c tickrate_enabler.cpp
+	$(CXX) $(CFLAGS) $(OPTFLAGS) $(INCLUDES) -c sdk/smsdk_ext.cpp extension.cpp clientlistener.cpp
 
 tickrate_enabler.so:
-	$(CC) -o tickrate_enabler.so $(LINKFLAGS) tickrate_enabler.o $(MMSDK)/build/core/metamod.2.tf2/linux-x86/sourcehook_sourcehook*.o \
+	$(CC) -o filenetmessages.ext.2.tf2.so $(LINKFLAGS) tickrate_enabler.o $(MMSDK)/build/core/metamod.2.tf2/linux-x86/sourcehook_sourcehook*.o \
 	-l:libtier0_srv.so -l:tier1_i486.a -lm -ldl -lstdc++
 
 clean:
